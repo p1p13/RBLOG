@@ -8,7 +8,9 @@
   <%= @article.text %>
 </p>
 <h2>Comments</h2>
-<%= render @article.comments %>
+<% @article.comments.each do |comment|%>
+  <%= render partial: 'comments/comment', locals: { comment: comment } %>
+<% end %>
 <h2>Add a comment:</h2>
 <%= render 'comments/form' %>
 <%= link_to 'Back', articles_path %>
